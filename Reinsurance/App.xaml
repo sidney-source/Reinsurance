@@ -1,0 +1,161 @@
+﻿<Application x:Class="Reinsurance.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Reinsurance"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+
+        <ResourceDictionary>
+
+
+            <SolidColorBrush x:Key="TopBarColor" 
+                             Color="#FFF2F4F7"/>
+            <SolidColorBrush x:Key="SideBarColor"
+                             Color="#FFDFE1F5"/>
+            <SolidColorBrush x:Key="BackgroundGrey"
+                             Color="White"/>
+            <Style x:Key="Menu App Icons" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="25" />
+                <Setter Property="FontWeight" Value="ExtraLight" />
+                <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="FontStretch" Value="Expanded"/>
+            </Style>
+            
+            <Style x:Key="Menu Text Headers" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="ExtraLight" />
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="TextAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="63,10,10,10"/>
+                <Setter Property="Cursor" Value="Hand" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Opacity" Value="0.35"/>
+                        <Setter Property="FontWeight" Value="DemiBold"/>
+                        <Setter Property="FontSize" Value="15"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            
+            <Style x:Key="Menu Text Sub Headers" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontWeight" Value="ExtraLight" />
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="TextAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Cursor" Value="Hand" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Opacity" Value="0.25"/>
+                        <Setter Property="FontSize" Value="13"/>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
+            
+            <Style x:Key="Menu App Buttons" TargetType="Button">
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Margin" Value="10,10,0,10"/>
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Foreground" Value="DodgerBlue"/>
+                                    <Setter Property="Opacity" Value="0.8"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            <Style x:Key="App Borders" TargetType="Border">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="Beige"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="Input Textbox" TargetType="TextBox">
+                <Setter Property="Padding" Value="2"/>
+                <Setter Property="Margin" Value="1"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="1"/>
+
+            </Style>
+
+            <Style x:Key="textBlock Holder" TargetType="TextBlock">
+                <Setter Property="FontWeight" Value="Light"/>
+                <Setter Property="Padding" Value="2"/>
+                <Setter Property="Margin" Value="2"/>
+                    
+
+            </Style>
+
+            <Style x:Key="Forms Buttons" TargetType="Button">
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Margin" Value="4"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Foreground" Value="#9f93fa"/>
+                                    <Setter Property="Opacity" Value="1.5"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="BorderBrush" Value="#9f93fa"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="Forms App Icons" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="25" />
+                <Setter Property="FontWeight" Value="ExtraLight" />
+                <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="FontStretch" Value="Expanded"/>
+            </Style>
+
+            <Style x:Key="List Box Items Headers" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="ExtraLight" />
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="TextAlignment" Value="Left"/>
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Margin" Value="2"/>
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,183 @@
+﻿<Window x:Class="Reinsurance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Reinsurance"
+        mc:Ignorable="d"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="600" MinWidth="1100"
+        Title="Reinsurance" Height="690" Width="1300">
+    
+    <!--#region animation Resources-->
+
+    <!--<Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Width)" Storyboard.TargetName="MenuDrawer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="38"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Width)" Storyboard.TargetName="MenuDrawer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="38"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="7"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="OpenDrawer">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="OpenDrawer">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>-->
+    <!--#endregion-->
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="7*" x:Name="MenuDrawer" />
+            <ColumnDefinition Width="187*"/>
+        </Grid.ColumnDefinitions>
+        <!--#region Menu Navigation Panel-->
+        <Grid Grid.Column="0" Margin="0" Background="{StaticResource SideBarColor}" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" Name="DashDrawer" />
+                    <RowDefinition Height="50" Name="FacDrawer" />
+                    <RowDefinition Height="50" Name="TreatyDrawer"/>
+                    <RowDefinition Height="50" Name="FinanceDrawer"/>
+                    <RowDefinition Height="50" Name="ExtraDrawer"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <!--drawer icon-->
+                    <Button x:Name="OpenDrawer" Style="{StaticResource Menu App Buttons}" Margin="10"
+                         Click="Open_drawer">
+                        <TextBlock Text="&#xE700;"  Style="{StaticResource Menu App Icons}"/>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <!--#Dashboard-->
+                    <Button  Style="{StaticResource Menu App Buttons}"
+                        Click="Dashboard_btn_click">
+                        <TextBlock Text="&#xE80F;"  Style="{StaticResource Menu App Icons}"/>
+                    </Button>
+                    <TextBlock Text="D A S H B O A R D" Style="{StaticResource Menu Text Headers}"
+                               PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_2"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <!--Facultative-->
+
+                    <Button  Style="{StaticResource Menu App Buttons}"
+                        Click="Facultative_btn_click">
+                        <TextBlock Text="&#xED11;"  Style="{StaticResource Menu App Icons}"/>
+                    </Button>
+                    <TextBlock Text="F A C U L T A T I V E" Style="{StaticResource Menu Text Headers}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown"/>
+                    <StackPanel Margin="58,45,0,0" >
+                        <TextBlock Text="Quotation" Name="FacQt" Style="{StaticResource Menu Text Sub Headers}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_1" />
+                        <TextBlock Text="Invoice" Style="{StaticResource Menu Text Sub Headers}" />
+                        <TextBlock Text="Slips" Style="{StaticResource Menu Text Sub Headers}" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <!--Treaty-->
+                    <Button  Style="{StaticResource Menu App Buttons}" 
+                        Click="Treaty_btn_click">
+                        <TextBlock Text="&#xF000;"  Style="{StaticResource Menu App Icons}"/>
+                    </Button>
+                    <TextBlock Text="T R E A T Y" Style="{StaticResource Menu Text Headers}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_3" />
+                    <StackPanel Margin="58,45,0,0" >
+                        <TextBlock Text="Invoicing"  Style="{StaticResource Menu Text Sub Headers}" />
+                        <TextBlock Text="Statistics"  Style="{StaticResource Menu Text Sub Headers}" />
+                        <TextBlock Text="Profit Commission" Style="{StaticResource Menu Text Sub Headers}" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <!--Finance-->
+                    <Button   Style="{StaticResource Menu App Buttons}"
+                        Click="Finance_btn_click">
+                        <TextBlock Text="&#xE825;"  Style="{StaticResource Menu App Icons}"/>
+                    </Button>
+                    <TextBlock Text="F I N A N C E" Style="{StaticResource Menu Text Headers}"/>
+                </Grid>
+            </Grid>
+
+        </Grid>
+        <!--#endregion-->
+        
+        <!--#region Top Dashplace -->
+        <Grid Grid.Column="1" Margin="0">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Background="{StaticResource TopBarColor}">
+                <Grid Background="{StaticResource BackgroundGrey}"
+                     HorizontalAlignment="Left" Margin="20,0,0,0"
+                      MinHeight="25" Width="250"
+                      MinWidth="80" Height="25">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="27"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="&#xF78B;"  Grid.Column="0" Cursor="Hand" Foreground="Orange"
+                    HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"
+                    FontSize="15" Style="{StaticResource Menu App Icons}"/>
+                    <TextBox Text="Search Here" FontStyle="Italic" Grid.Column="1"  VerticalAlignment="Center"
+                             BorderBrush="Transparent" Background="Transparent"
+                             BorderThickness="0" HorizontalAlignment="Left" />
+                </Grid>
+                <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Right"  Grid.Row="0" Margin="0">
+                    <TextBlock Text="Sidney mutai" HorizontalAlignment="Left" FontSize="20" 
+                            VerticalAlignment="Center" Margin="0" Style="{StaticResource Menu Text Headers}" />
+                    <!--User Profile Icon-->
+                    <Grid Margin="4">
+                    <Ellipse x:Name="UserIcon" Opacity="0.65"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="40" 
+                        Height="40">
+                        <Ellipse.Fill>
+                                <SolidColorBrush Color="#FFDFE6A1"/>
+                        </Ellipse.Fill>
+
+                    </Ellipse>
+                    <TextBlock Text="S" Margin="0" VerticalAlignment="Center" FontSize="35"
+                    HorizontalAlignment="Center" />
+                        <TextBlock Text="&#xF136;"  
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    FontSize="13" Style="{StaticResource Menu App Icons}"/>
+                        <TextBlock Text="&#xF137;" Foreground="LimeGreen" 
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    FontSize="13" Style="{StaticResource Menu App Icons}"/>
+                    </Grid>
+              
+
+                </StackPanel>
+            </Grid>
+        <!--#endregion-->
+            
+        <!--#region Current Navigation Window -->
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal" Grid.Row="1"   HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock Margin="3" FontWeight="Light" TextAlignment="Left"  FontSize="18" Text="You Are Here &gt;"/>
+                    <TextBlock Margin="3" Name="Tiwyr1" Text="" FontWeight="Light" TextAlignment="Left"  FontSize="18" />
+                    <TextBlock Margin="3" Name="Tiwyr2" Text="" FontWeight="Light" TextAlignment="Left"  FontSize="18" />
+                    <TextBlock Margin="3"/>
+                </StackPanel>
+            </Grid>
+            <!--#endregion-->
+
+            
+        <Grid  Margin="0" Grid.Row="2"  Background="Transparent">
+            <Frame Name= "ViewWindow"  NavigationUIVisibility="Hidden"/>
+        </Grid>
+          
+        </Grid>
+        <Frame Name ="mainFrame"  Grid.ColumnSpan="2" />
+    </Grid>
+</Window>
+    
